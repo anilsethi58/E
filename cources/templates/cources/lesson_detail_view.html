@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} {{lessons.name}} {% endblock %}
+
+{% block image_block %}
+<header class="info-header">
+    <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center ">
+        <div class="row d-flex justify-content-center text-center">
+            <div class="col-md-10 text-white">
+                <!-- heading -->
+                <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;">Chapter-{{lessons.position}}:
+                    {{lessons.name}}</h2>
+                <div class="row d-flex justify-content-center text-center">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'cources:standard_list' %}">cources</a></li>
+                        <li><a
+                                href="{% url 'cources:subject_list' slug=lessons.Standard.slug %}">{{lessons.Standard.name}}</a>
+                        </li>
+                        <li><a
+                                href="{% url 'cources:lesson_list' standard=lessons.Standard.slug slug=lessons.subject.slug %}">{{lessons.subject.name}}</a>
+                        </li>
+                        <li class="disabled-text">{{lessons.name}}</li>
+                    </ul>
+                </div>
+
+                <!-- divider -->
+                <hr style="color:#ff5722;">
+
+                <!-- description -->
+                <h4 class="white-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Deleniti
+                    consequuntur.</h4>
+            </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+<section class="text-center">
+    <h2 class="mb-0 mt-5 font-weight-bold" style="color:#ff5722;">Lecture Details</h2>
+    <div class="row d-flex justify-content-center mb-3">
+        <blockquote class="blockquote mt-0">
+            <footer class="blockquote-footer">Created on {{lessons.created_at}} by <cite
+                    title="Source Title">{{lessons.created_by}}</cite></footer>
+        </blockquote>
+    </div>
+    <!-- video -->
+    <div class="row d-flex justify-content-center mb-3">
+
+        <!-- download cards -->
+        <div class="row d-flex justify-content-center mb-3 mt-3">
+            <!-- download presentations -->
+            <div class="col-md-4 mb-4 mt-4">
+                <div class="card box-shadow-hover">
+                    <div class="card-body">
+                        <h5 class="card-title">Download Presentations</h5>
+                        {% if lessons.ppt %}
+                        <p class="card-text">Download presentations from the lecture</p>
+                        <a href="{{lessons.ppt.url}}" download>
+                            <button type="button" class="button-les"><span>Get Files</span></button>
+                        </a>
+                        {% else %}
+                        <p class="card-text"> No PPT available</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            <!-- download notes -->
+            <div class="col-md-4 mb-4 mt-4">
+                <div class="card box-shadow-hover">
+                    <div class="card-body">
+                        <h5 class="card-title">Download Notes</h5>
+                        {% if lessons.Notes %}
+                        <p class="card-text">Download notes from the lecture</p>
+                        <a href="{{lessons.Notes.url}}" download>
+                            <button type="button" class="button-les"><span>Get Files</span></button>
+                        </a>
+                        {% else %}
+                        <p class="card-text">Notes not available</p>
+                        {%endif%}
+
+                    </div>
+                </div>
+            </div>
+            <!-- download video -->
+            <div class="col-md-4 mb-4 mt-4">
+                <div class="card box-shadow-hover">
+                    <div class="card-body">
+                        <h5 class="card-title">Download Video</h5>
+                        <p class="card-text">Download Video from the lecture</p>
+                        <a href="{{lessons.video.url}}" download>
+                            <button type="button" class="button-les"><span>Get Files</span></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- update and delete button -->
+        <div class="row d-flex justify-content-center mb-3 mt-3">
+            {% if user.userprofileinfo.user_type == 'teacher' or user.is_superuser %}
+            <div class="col-md-6 mb-3 text-center">
+                <a href="{% url 'cources:lesson_update' standard=lessons.Standard.slug subject=lessons.subject.slug slug=lessons.slug %}"
+                    class="btn btn-warning btn-lg mr-4 btn-block">Update Lesson</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'cources:lesson_delete' standard=lessons.Standard.slug subject=lessons.subject.slug slug=lessons.slug %}"
+                    class="btn btn-danger btn-lg mr-4 btn-block"> Delete Lesson </a>
+            </div>
+            {% endif %}
+        </div>
+</section>
+
+<hr class="my-5" style="color:#ff5722;">
+
+
+
+{%endblock%}
