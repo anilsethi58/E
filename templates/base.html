@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -34,6 +35,9 @@
           <li class="nav-item  ">
             <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
           </li>
+          <li class="nav navbar-nav ">
+            <a class="nav-link">Logged In As  {{ user.username }} , Welcome </a>
+          </li>
           {% else %}
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'user_login' %}">Login</a>
@@ -49,9 +53,7 @@
             <a class="nav-link" href="https://github.com/anilsethi58/E_learning-Platform">GitHub</a>
             </li>
           
-            <li class="nav navbar-nav ">
-              <a class="nav-link">Logged In As  {{ user.username }} , Welcome </a>
-            </li>
+            
   
 
         </ul>
@@ -164,7 +166,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2024 Copyright:
+      © 2025 Copyright:
     </div>
     <!-- Copyright -->
   </footer>
