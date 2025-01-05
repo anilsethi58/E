@@ -44,8 +44,6 @@ class Subject(models.Model):
         self.slug = slugify(self.subject_id)
         super().save(*args, **kwargs)
 
-
-#lesson model
 def save_lesson_files(instance, filename):
     upload_to = 'Images/'
     ext = filename.split('.')[-1]

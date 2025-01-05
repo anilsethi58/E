@@ -16,7 +16,7 @@
   <!-- navigation bar -->
   <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top scrolling-navbar">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'index' %}" style="color:#ff5722;">Home</a>
+      <a class="navbar-brand" href="{% url 'index' %}" style="color:#c8760be8;">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
         aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,7 @@
             <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
           </li>
           <li class="nav navbar-nav ">
-            <a class="nav-link">Logged In As  {{ user.username }} , Welcome </a>
+            <a class="nav-link">Logged In As  {{ user.username }} </a>
           </li>
           {% else %}
           <li class="nav-item ">
@@ -67,16 +67,16 @@
       <div class="row d-flex justify-content-center text-center">
         <div class="col-md-10 text-white">
           <!-- heading -->
-          <h2 class="display-4 font-weight-bold white-text  p-5 mb-2" style="color:#ffffff;"> E Learning Platform</h2>
+          <h2 class="display-4 font-weight-bold white-text  p-5 mb-2" style="color:#0f0fa2;"> E Learning Platform</h2>
   
           <!-- divider -->
-          <hr style="color:#ff5722;">
+          <hr style="color:#ff2234;">
   
           <!-- description -->
           <h4 class="white-text my-4">E-learning has revolutionized how people access and engage with education
             And it continues to evolve to meet the demands of learners in a digital world.</h4>
           <a href="{% url 'cources:standard_list' %}"> <button type="button" class="btn"
-              style="color:#ff5722;border-color:#ff5722;"> Start Now</button> </a>
+              style="color:#ff2231;border-color:#ff2229;"> Start Now</button> </a>
   
         </div>
       </div>
@@ -119,7 +119,7 @@
           <h5 class="text-uppercase mb-4 pb-1">Any Query</h5>
 
           <div class="form-outline form-white mb-4">
-            <a href="contact"> <button type="button" class="btn" style="color:#ff5722;border-color:#ff5722;">Send
+            <a href="contact"> <button type="button" class="btn" style="color:#5622ff;border-color:#5622ff;">Send
               Feedback</button> </a>
           </div>
 
@@ -165,7 +165,7 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-3" style="background-color: rgba(13, 13, 13, 0.2);">
       © 2025 Copyright:
     </div>
     <!-- Copyright -->
